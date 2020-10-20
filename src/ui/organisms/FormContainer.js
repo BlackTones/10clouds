@@ -43,7 +43,7 @@ const PhoneNumber = styled.div`
     align-items: flex-end;
     > * {
         &:first-child{
-            flex: 0 1 114px;
+            flex: 0 0 114px;
             margin-right: 19px;
         }
         &:nth-child(2){

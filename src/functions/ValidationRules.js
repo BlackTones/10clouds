@@ -20,9 +20,9 @@ export default function validate(values) {
     if (!values.birthD || values.birthD < 1 || values.birthD > daysInMonth(values.birthM, 2020)) {
         errors.birthD = "Invalid data"
     } else if (Math.floor((new Date() - new Date(values.birthY, values.birthM, values.birthD).getTime()) / 3.15576e+10) < 18) {
-        errors.birthD = "You must be older";
-        errors.birthM = "Too young";
-        errors.birthY = "Too young";
+        errors.birthD = "You must be at least 18 years old";
+        errors.birthM = "You must be at least 18 years old";
+        errors.birthY = "You must be at least 18 years old";
     }
 
     return errors;
