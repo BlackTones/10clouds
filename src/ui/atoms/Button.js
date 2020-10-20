@@ -18,8 +18,10 @@ const StyledButton = styled.button`
     bottom: 0;
     transition: 0.3s;
     transform: scale(1.0) translateY(50%);
+    backface-visibility: hidden;
     &:hover{
         transform: scale(1.1) translatey(50%);
+        backface-visibility: hidden;
     }
     &::after{
         content: url(${buttonArrow});
@@ -27,7 +29,7 @@ const StyledButton = styled.button`
         height: 50px;
         position: absolute;
         top: 0;
-        right: -49px;
+        right: -50px;
         background: #7841F4;
         display: flex;
         align-items: center;
@@ -38,6 +40,7 @@ const StyledButton = styled.button`
         outline: none;
     }
     @media (max-width: 991px) {
+    transition: 0s;
         left: 50%;
         transform: translate( calc(-50% - 25px ) , 50%);
         &:hover{

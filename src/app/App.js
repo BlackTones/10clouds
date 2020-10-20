@@ -10,9 +10,12 @@ const BackgroundImageContainer = styled.div`
     overflow: hidden;
     position: absolute;
     max-width: 100%;
-    top: 0;
+    top: -56px;
     left: 0;
     z-index: -3;
+    @media (max-width:991px){
+      top: -25px;
+    }
 `
 
 
