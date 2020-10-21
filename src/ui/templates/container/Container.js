@@ -8,6 +8,18 @@ import RightColumn from '../columns/RightColumn';
 
 const Box = styled.div`
     padding-bottom: 100px;
+    opacity: 0;
+    animation: show 0.5s normal forwards ease-in-out;
+    @keyframes show {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    }
     @media (max-width: 991px){
         padding-bottom: 0;
     }
