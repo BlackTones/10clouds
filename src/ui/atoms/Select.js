@@ -133,7 +133,7 @@ function Select(props) {
             <StyledOptionContainer openDropdown={openDropdown} name={name}>
                 {options.map((o, i) => {
                     let dayNumber = o + 1;
-                    return <StyledOption value={o} key={o} onClick={() => onClickHandler(o, name, openDropdown)} value={inputValue}>{name === "birthM" ? !renderMobile ? monthNames[i] : ('0' + dayNumber).slice(-2) : o}</StyledOption>
+                    return <StyledOption value={o} key={o} onClick={() => onClickHandler(o, name, openDropdown)} >{name === "birthM" ? !renderMobile ? monthNames[i] : ('0' + dayNumber).slice(-2) : o}</StyledOption>
                 })}
             </StyledOptionContainer>
         </>

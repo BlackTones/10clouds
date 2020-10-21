@@ -49,6 +49,7 @@ const StyledRadioLabel = styled.label`
     box-sizing: border-box;
     padding-right: 7px;
     justify-content: center;
+    cursor: pointer;
     &:hover{
         border-color: #1BFEC0;
     }

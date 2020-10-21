@@ -23,6 +23,13 @@ const StyledStep = styled.a`
         opacity: ${props => props.isCurrent ? "1" : "0.25"};;
         left: 0;
         top: 0;
+        transition: 0.3s;
+    }
+    &:hover{
+        &::before{
+            background: #1BFEC0;
+        opacity: ${props => props.isCurrent ? "1" : "0.7"};;
+        }
     }
     @media (max-width: 991px) {
         display: none;

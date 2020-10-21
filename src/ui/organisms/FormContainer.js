@@ -111,8 +111,8 @@ function FormContainer() {
         phonePrefix: "93 (AF)",
         phoneNumber: "",
         chess: "",
-        birthD: "",
-        birthM: "1",
+        birthD: "1",
+        birthM: "0",
         birthY: "2020",
     }, {
         phonePrefix: false,
