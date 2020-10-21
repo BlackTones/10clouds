@@ -106,14 +106,18 @@ const BirthDateForm = styled.div`
 `
 
 function FormContainer() {
-    const { inputValue, handleInputChange, handleSubmit, errors, prefixData } = useInput({
+    const { inputValue, handleInputChange, handleSubmit, errors, prefixData, handleOpenDropdown, openDropdown } = useInput({
         nameInput: "",
-        phonePrefix: "",
+        phonePrefix: "93 (AF)",
         phoneNumber: "",
         chess: "",
         birthD: "",
         birthM: "1",
         birthY: "2020",
+    }, {
+        phonePrefix: false,
+        birthM: false,
+        birthY: false,
     }, validate);
 
 
@@ -123,7 +127,7 @@ function FormContainer() {
             <Form>
                 <InputCombined label='Your Name' error={errors.nameInput} name="nameInput" inputType="Input" type="text" hasLabel onChangeHandler={handleInputChange} inputValue={inputValue.nameInput} />
                 <PhoneNumber>
-                    <InputCombined label='Mobile' name="phonePrefix" inputType="Select" answers={prefixData} inputValue={inputValue.phonePrefix} onChangeHandler={handleInputChange} hasLabel />
+                    <InputCombined label='Mobile' name="phonePrefix" inputType="Select" answers={prefixData} inputValue={inputValue.phonePrefix} handleOpenDropdown={handleOpenDropdown} openDropdown={openDropdown.phonePrefix} onChangeHandler={handleInputChange} hasLabel />
                     <InputCombined label='Number' error={errors.phoneNumber} name="phoneNumber" inputType="Input" type="tel" onChangeHandler={handleInputChange} inputValue={inputValue.phoneNumber} />
                 </PhoneNumber>
                 <InputCombined label='Can you play chess?' inputType="Radio" type="radio" name="chess" answers={['Yes', 'No']} required hasLabel error={errors.chess} onChangeHandler={handleInputChange} inputValue={inputValue.chess} />
@@ -131,8 +135,8 @@ function FormContainer() {
                     <FullWidthLabel>Date of birth</FullWidthLabel>
                     <BirthDateForm>
                         <InputCombined customClass="fullBorder" name="birthD" error={errors.birthD} inputType="Input" type="Number" maxInput="2" onChangeHandler={handleInputChange} inputValue={inputValue.birthD} />
-                        <InputCombined customClass="fullBorder" name="birthM" error={errors.birthM} inputType="Select" answers={months} inputValue={inputValue.birthM} onChangeHandler={handleInputChange} />
-                        <InputCombined customClass="fullBorder" name="birthY" error={errors.birthY} inputType="Select" answers={years} inputValue={inputValue.birthY} onChangeHandler={handleInputChange} />
+                        <InputCombined customClass="fullBorder" name="birthM" error={errors.birthM} inputType="Select" answers={months} handleOpenDropdown={handleOpenDropdown} openDropdown={openDropdown.birthM} inputValue={inputValue.birthM} onChangeHandler={handleInputChange} />
+                        <InputCombined customClass="fullBorder" name="birthY" error={errors.birthY} inputType="Select" answers={years} handleOpenDropdown={handleOpenDropdown} openDropdown={openDropdown.birthY} inputValue={inputValue.birthY} onChangeHandler={handleInputChange} />
                     </BirthDateForm>
                 </DateOfBirth>
                 <Button onSubmit={handleSubmit} />

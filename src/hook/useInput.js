@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import Axios from 'axios';
 
-const useInput = (initialVal, validate) => {
+const useInput = (initialVal, initialDropdownVal, validate) => {
     const [inputValue, setInputValue] = useState(initialVal);
     const [errors, setErrors] = useState({});
     const [prefixData, setPrefixData] = useState([]);
+    const [openDropdown, setOpenDropdown] = useState(initialDropdownVal);
 
 
     useEffect(() => {
@@ -43,12 +44,21 @@ const useInput = (initialVal, validate) => {
         });
     }
 
+    const handleOpenDropdown = (val) => {
+        setOpenDropdown({
+            ...openDropdown,
+            [val.target.name]: !val.target.dropdown
+        });
+    }
+
     return {
         inputValue,
         handleInputChange,
         handleSubmit,
+        handleOpenDropdown,
+        openDropdown,
         errors,
-        prefixData
+        prefixData,
     };
 };
 

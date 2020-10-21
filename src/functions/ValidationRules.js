@@ -9,10 +9,12 @@ export default function validate(values) {
     } else if (values.nameInput.trim().length < 3) {
         errors.nameInput = 'Invalid data';
     }
-    if (!values.phoneNumber) {
+    if (values.phoneNumber) {
+        let phoneNumberTrim = values.phoneNumber.replace(/\s+/g, "");
+        let phoneError = phoneNumberTrim.length !== 9 && 'Invalid data';
+        errors.phoneNumber = phoneError;
+    } else {
         errors.phoneNumber = 'Phone number is required';
-    } else if (values.phoneNumber.trim().length !== 9) {
-        errors.phoneNumber = 'Invalid data';
     }
     if (!values.chess) {
         errors.chess = 'This field is required';

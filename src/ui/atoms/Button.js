@@ -19,6 +19,7 @@ const StyledButton = styled.button`
     transition: 0.3s;
     transform: scale(1.0) translateY(50%);
     backface-visibility: hidden;
+    cursor: pointer;
     &:hover{
         transform: scale(1.1) translatey(50%);
         backface-visibility: hidden;
